@@ -33,4 +33,4 @@ function updateText(text){
 updateText(loveTrainText[getRandomInt(3)]);   
 let interval = setInterval(() => {
     updateText(loveTrainText[getRandomInt(3)]);
-}, 60*1000)
+}, 30*1000)
