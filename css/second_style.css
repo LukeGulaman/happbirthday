@@ -1,0 +1,106 @@
+@keyframes titleBounceIn {
+    0% { transform: scale(0%); }
+    60% { transform: scale(110%); }
+    90% { transform: scale(110%) rotate(2deg); }
+    100% { transform: scale(100%) rotate(2deg); }
+}
+@keyframes starIn {
+    0% { transform: scale(0%); }
+    60% { transform: scale(150%); }
+    100% { transform: scale(100%); }
+}
+@keyframes titleSpan {
+    0% { font-size: 0vw; }
+    80% { font-size: 12vw; }
+    100% { font-size: 8vw; }
+}
+@keyframes starRotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes swayRotate {
+    0% { transform: rotate(2deg); }
+    50% { transform: rotate(4deg); }
+    100% { transform: rotate(2deg); }
+}
+@keyframes shockwave {
+    0% {transform: scale(0%) rotate(0deg); opacity: 0.5;}
+    100% {transform: scale(500%) rotate(15deg); opacity: 0;}
+}
+
+:root {
+    --title-animation-delay: 0.5s;
+}
+body {
+    overflow: hidden;
+}
+p {
+    font-family: 'Inconsolata';
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+}
+#pBox {
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 1s, max-height 5s ease-out;
+    height: fit-content;
+    overflow: hidden;
+}
+#titleBox {
+    display: flex;
+    flex-direction: row;
+    animation: 2s ease-in-out var(--title-animation-delay) 1 titleBounceIn forwards, 5s ease-in-out calc(var(--title-animation-delay) + 2s) infinite swayRotate;
+
+    transform: scale(0%);
+}
+.title {
+    font-size: 5vw;
+    font-weight: 900;
+    color: transparent;
+    background-image: linear-gradient(pink, violet);
+    background-clip: text;
+}
+#titleSpan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0vw;
+    font-weight: 900;
+    color: transparent;
+    background-image: linear-gradient(pink, violet);
+    background-clip: text;
+
+    animation: 2s ease-in-out var(--title-animation-delay) 1 titleSpan;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    padding: 0 2%;
+}
+/* #titleBox {
+    margin-top: 10%;
+} */
+#circleStar {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    opacity: 0.25;
+    transform: scale(0%);
+
+    animation: 2s ease-in-out var(--title-animation-delay) 1 starIn, 15s linear calc(var(--title-animation-delay) + 2s) infinite starRotate;
+}
+#heartShockwave {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    opacity: 0.5;
+    transform: scale(0%);
+    z-index: 0;
+
+    animation: 1.5s ease-out calc(var(--title-animation-delay) + 2s) 1 shockwave;
+}
+#bodyDiv {
+    height: fit-content;
+    margin: 0 20%;
+}
