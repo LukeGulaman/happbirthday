@@ -24,7 +24,7 @@
     position: absolute;
     bottom: 0%;
     right: 100%;
-    animation: moveTrain 60s linear 0s infinite forwards;
+    animation: moveTrain 30s linear 0s infinite forwards;
 }
 #loveTrain {
     display: inline-block;

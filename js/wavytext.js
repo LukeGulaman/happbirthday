@@ -1,4 +1,4 @@
-const loveTrainText = ["I love you the most!", "Hey there beautiful :3", "Happy early anniversary!", "Our special day is coming!"];
+const loveTrainText = ["I love you the most!", "A surprise...", "Guess whats coming!", "Your special day is coming!"];
 let lastIndex = 0;
 
 function getRandomInt(max) {
