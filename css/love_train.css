@@ -6,10 +6,15 @@
         transform: translateX(140vw);
     }
 }
-@keyframes wavy {
+@keyframes trainWavy {
     0% { transform: translateY(15px); }
-    50% { transform: translateY(5px); }
+    50% { transform: translateY(-5px); }
     100% { transform: translateY(15px); }
+}
+@keyframes wavy {
+    0% { transform: translateY(2px); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(2px); }
 }
 
 #trainDiv {
@@ -40,8 +45,7 @@
     color: #ffb7ce;
     font-weight: bold;
 }
-.wavy {
-    animation-name: wavy;
+.trainwavy, .wavy {
     animation-duration: 1.3s;
     animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);;
     animation-iteration-count: infinite;
@@ -49,4 +53,10 @@
     display: inline-block;
     top: 0;
     left: 0;
+}
+.trainwavy {
+    animation-name: trainWavy;
+}
+.wavy {
+    animation-name: wavy;
 }

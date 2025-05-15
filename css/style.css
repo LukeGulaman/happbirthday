@@ -1,4 +1,8 @@
 @font-face {
+    font-family: 'Cascadia';
+    src: url(../assets/fonts/CascadiaCode-Variable.ttf);
+}
+@font-face {
     font-family: 'Montserrat';
     src: url(../assets/fonts/Montserrat-Variable.ttf);
 }
@@ -11,9 +15,20 @@
     from { background-position: 0px 0; }
     to { background-position: -200px -200px; }
 }
+@keyframes whiteGlowGrow {
+    from { transform: scale(25%); opacity: 0; }
+    30% { transform: scale(50%);  }
+    60% { opacity: 1; }
+    80% { transform: scale(100%); }
+    to { transform: scale(1000%); }
+}
+@keyframes whiteFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 * {
-    font-family: 'Montserrat';
+    font-family: 'Cascadia';
 }
 .center {
     display: flex;
@@ -23,23 +38,28 @@
 }
 
 body {
-    background-image: url(../assets/imgs/background.png);
-    background-repeat: repeat;
-    background-size: 200px;
-    animation: scrollBackground 15s linear infinite normal;
-
     margin: 0;
     overflow: hidden;
 }
-#bgGradient {
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    background: #000;
+    z-index: -10;
+}
+#white {
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
+    opacity: 0;
 
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.75));
-    z-index: -1;
+    background: white;
+    pointer-events: none;
+    z-index: 20;
 }
 #clickScreen {
     position: absolute;
@@ -90,7 +110,7 @@ body {
     justify-content: center;
 }
 #time {
-    color: black;
+    color: white;
 
     text-align: center;
     font-weight: bold;
@@ -99,11 +119,13 @@ body {
     width: 100%;
     padding: 15px;
 
-    background-color: #ffb7ce;
-    border-radius: 15px;
+    background-color: #ffb7ce24;
+    border: solid 1px #ffb7ce;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 #timedesc {
-    color: black;
+    color: white;
 
     text-align: center;
     font-weight: bold;
@@ -112,11 +134,19 @@ body {
     width: fit-content;
     padding: 10px;
 
-    background-color: #ff80a8;
-    border-radius: 0 0 15px 15px;
+    background-color: #ff80a825;
+    border: solid 1px #ff80a8;
+    border-radius: 5px;
 }
 #timecontainer {
     width: 50vw;
+}
+
+#whiteGlow {
+    position: absolute;
+    z-index: 15;
+
+    transform: scale(0);
 }
 
 .middleItems {
@@ -127,6 +157,12 @@ body {
 }
 .heartParticles {
     position: absolute;
-    width: 5vw;
-    height: 5vw;
+    top: 0%;
+    left: 0%;
+    filter: brightness(200%);
+    z-index: 10;
+    image-rendering: crisp-edges;
+
+    width: 150px;
+    height: 150px;
 }

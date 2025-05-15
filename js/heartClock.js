@@ -2,11 +2,16 @@ const root = document.querySelector(":root"),
     timeText = document.getElementById("time"),
     heartTick = document.getElementById("heartTick"),
     trainText = document.getElementById("trainText"),
-    heartParticle = document.getElementsByClassName("heartParticles")[0],   
+    whiteGlow = document.getElementById("whiteGlow"),
+    white = document.getElementById("white"),
+    heartParticle = document.getElementsByClassName("heartParticles")[0],
 
     birthdayDate = new Date("2025-05-20T19:01:00"),
     startOfFile = new Date("2025-04-27T12:00:00"),
 
+    splashBuildup = new Audio("assets/sounds/splash_buildup.ogg"),
+    whooshlong = new Audio("assets/sounds/whoosh_long.ogg"),
+    introPad = new Audio("assets/music/introPad1.ogg"),
     tick1 = new Audio("assets/sounds/tick1.mp3"),
     tick2 = new Audio("assets/sounds/tick2.mp3");
 
@@ -14,7 +19,15 @@ const oneDay = 24 * 60 * 60 * 1000;
 
 let intervalId;
 let tick = 0;
+let spinSpeedIncrease = false;
+let transitioning = false;
 
+tick1.volume = 0.5;
+tick2.volume = 0.5;
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function nodeScriptReplace(node) {
     if (nodeScriptIs(node) === true) {
         node.parentNode.replaceChild(nodeScriptClone(node), node);
@@ -79,25 +92,103 @@ function timePercentage(startDate, currentDate, endDate) {
 
     return Math.round(sp2 / sp1 * 10000) / 100;
 }
+
 function transitionToPage() {
+    if (transitioning) return;
+    transitioning = true;
+
     clearInterval(intervalId);
     intervalId = null;
+    splashBuildup.play();
+    introPad.play();
 
-    let heartParticleInt = setInterval(() => {
-        let h = heartParticle.cloneNode();
-        const heartKeyframes = [
-            {}
-        ]
-    }, 250);
+    whiteGlow.style.animation = "20s ease-in whiteGlowGrow";
+    whiteGlow.style.animationFillMode = "forwards";
+    white.style.animation = "whiteFade 3s ease 17s 1 normal forwards";
+    heartTick.style.opacity = 0;
+
+    let changePage = false;
+    let durationTime = 6000;
+    let intervalTime = 300;
+
+    const clientrect = heartParticle.getBoundingClientRect();
+    const offsetwidth = clientrect.width / 2;
+    const offsetheight = clientrect.height - 15;
+
+    spinSpeedIncrease = true;
+
+    let heartParticleInt = function () {
+        if (changePage) return;
+        const h = heartParticle.cloneNode();
+
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        let heartKeyframes;
+        let angle = getRandomNumber(0, 360);
+        let radius = 2000;
+        let decayRate = 0.925;
+        const angleRate = 0.15;
+
+        function createSpiralKeyframes() {
+            const keyframes = [];
+            
+            for (let i = 0; i < 60; i++) {
+                angle += angleRate;
+                radius *= decayRate;
+
+                const x = (centerX - offsetwidth) + radius * Math.cos(angle);
+                const y = (centerY - offsetheight) + radius * Math.sin(angle);
+                const scale = (radius / 2000) * 4;
+                const skew = (radius / 2000) * 1.25;
+                keyframes.push({ transform: `translate(${x}px, ${y}px) scale(${scale}) rotate(${angle * 50 + 90}deg) skew(${skew}rad)` })
+                decayRate -= 0.005;
+            }
+
+            return keyframes;
+        }
+
+        heartKeyframes = createSpiralKeyframes();
+        const heartTiming = {
+            duration: durationTime,
+            iterations: 1,
+            easing: "ease-in",
+            fill: "forwards"
+        }
+
+        heartDiv.appendChild(h);
+        h.style.visibility = "visible";
+        h.animate(
+            heartKeyframes,
+            heartTiming
+        )
+
+        if (intervalTime > 60) {
+            const whoosh = new Audio("assets/sounds/whoosh.ogg");
+            whoosh.volume = 0.2;
+            setTimeout(() => {
+                whoosh.play(); h.remove();
+            }, durationTime * 0.75);
+        }
+
+        durationTime = Math.max(0.1, durationTime - 30);
+        intervalTime = Math.max(50, intervalTime * 0.98);
+        
+        setTimeout(heartParticleInt, intervalTime);
+    };
+
+    setTimeout(heartParticleInt, intervalTime);
+    setTimeout(() => whooshlong.play(), 14000);
+
     setTimeout(() => {
-        clearInterval(heartParticleInt);
+        changePage = true;
         heartParticleInt = null;
-    }, 5000)
 
-    // fetch("new.html").then(response => response.text()).then(text => {
-    //     document.querySelector('html').innerHTML = text;
-    //     nodeScriptReplace(document.getElementsByTagName("body")[0]);
-    // });
+        fetch("new.html").then(response => response.text()).then(text => {
+            document.querySelector('html').innerHTML = text;
+            nodeScriptReplace(document.getElementsByTagName("body")[0]);
+        });
+    }, 20000)
 }
 function startClock() {
     setTimeout(() => {
@@ -118,7 +209,7 @@ function startClock() {
             if ((tick % 2) == 0) tick1.play(); else tick2.play();
             tick++;
         }, 1000)
-    }, 1000 - new Date().getMilliseconds());``
+    }, 1000 - new Date().getMilliseconds()); ``
 }
 
 changeTime(new Date(), birthdayDate);

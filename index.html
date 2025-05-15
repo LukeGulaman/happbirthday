@@ -14,24 +14,30 @@
 <body>
     <img id="clickScreen" src="assets/imgs/heart_hole.png" onclick="clickScreen(this)">
     <div id="welcomeText">Click to enter!<br>(Best in landscape)</div>
-    <div id="bgGradient"></div>
+    <canvas id="container"></canvas>
+    <audio id="bgMusic" src="assets/music/fly_me_to_the_moon(inst).mp3" loop></audio>
+
+    <div id="white"></div>
     <div id="divBody">
-        <div id="heartDiv" onclick="transitionToPage()">
+        <div id="heartDiv"  onclick="transitionToPage()">
             <img id="heartClock" src="assets/imgs/heart.png">
             <img id="heartTick" src="assets/imgs/heart.png">
-            <img class="heartParticles" src="assets/imgs/heart.png" style="display: none;">
+            <img id="whiteGlow" src="assets/imgs/white_glow.png">
+            <img class="heartParticles" src="assets/imgs/heart.png" style="visibility: hidden;">
         </div>
         <div class="middleItems" id="timecontainer">
             <div id="time">0 months, 0 days, 0 hours, 0 minutes, 0 seconds left</div>
-            <div id="timedesc">“Every second brings us closer to your special day.”</div>
+            <div id="timedesc">"Every second brings us closer to your special day."</div>
         </div>
     </div>
     <div id="trainDiv">
         <object id="loveTrain" type="image/svg+xml" data="assets/imgs/love_train.svg"></object>
-        <div id="trainText">Our special day is coming up! :3</div>
+        <div id="trainText">BIRTHDAY! :3</div>
     </div>
+    <script src="js/three.min.js"></script>
+    <script src="js/shader.js"></script>
     <script src="js/heartClock.js"></script>
-    <script src="js/htmlfunctions.js"></script>
-    <script src="js/wavytext.js"></script>
+    <script src="js/globalfunctions.js"></script>
+    <script src="js/loveTrain.js"></script>
 </body>
 </html>
