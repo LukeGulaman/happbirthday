@@ -10,6 +10,13 @@
             "name": "Launch the SITE!",
             "runtimeArgs": ["--allow-file-access-from-files"],
             "url": "C:\\Users\\mepvg\\Documents\\Luke Gulaman Stuff\\Other Stuff\\mama's birthday\\index.html"
-        }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch the 2nd SITE!",
+            "runtimeArgs": ["--allow-file-access-from-files"],
+            "url": "C:\\Users\\mepvg\\Documents\\Luke Gulaman Stuff\\Other Stuff\\mama's birthday\\new.html"
+        },
     ]
 }

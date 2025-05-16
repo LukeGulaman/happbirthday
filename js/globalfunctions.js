@@ -5,6 +5,7 @@ const bgMusic = document.getElementById("bgMusic");
 bgMusic.volume = 1.;
 
 let hasClicked = false;
+let rate = 0.0005;
 
 function wavyText(id, text, className, delay) {
     id.innerHTML = text
@@ -21,7 +22,7 @@ function wavyText(id, text, className, delay) {
     });
 }
 
-wavyText(timeDesc, timeDesc.textContent, "wavy", 30);
+wavyText(timeDesc, timeDesc.textContent, "defaultWavy", 30);
 
 function clickScreen(elem) {
     if (hasClicked) return;

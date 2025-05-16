@@ -11,10 +11,6 @@
     src: url(../assets/fonts/Inconsolata-Variable.ttf);
 }
 
-@keyframes scrollBackground {
-    from { background-position: 0px 0; }
-    to { background-position: -200px -200px; }
-}
 @keyframes whiteGlowGrow {
     from { transform: scale(25%); opacity: 0; }
     30% { transform: scale(50%);  }

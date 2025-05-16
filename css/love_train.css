@@ -11,7 +11,7 @@
     50% { transform: translateY(-5px); }
     100% { transform: translateY(15px); }
 }
-@keyframes wavy {
+@keyframes defaultWavy {
     0% { transform: translateY(2px); }
     50% { transform: translateY(-2px); }
     100% { transform: translateY(2px); }
@@ -58,5 +58,5 @@
     animation-name: trainWavy;
 }
 .wavy {
-    animation-name: wavy;
+    animation-name: defaultWavy;
 }

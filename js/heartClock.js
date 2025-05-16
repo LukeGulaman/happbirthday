@@ -19,11 +19,10 @@ const oneDay = 24 * 60 * 60 * 1000;
 
 let intervalId;
 let tick = 0;
-let spinSpeedIncrease = false;
 let transitioning = false;
+let changePage = false;
 
-tick1.volume = 0.5;
-tick2.volume = 0.5;
+tick1.volume = tick2.volume = 0.5;
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -107,15 +106,12 @@ function transitionToPage() {
     white.style.animation = "whiteFade 3s ease 17s 1 normal forwards";
     heartTick.style.opacity = 0;
 
-    let changePage = false;
     let durationTime = 6000;
     let intervalTime = 300;
 
     const clientrect = heartParticle.getBoundingClientRect();
     const offsetwidth = clientrect.width / 2;
     const offsetheight = clientrect.height - 15;
-
-    spinSpeedIncrease = true;
 
     let heartParticleInt = function () {
         if (changePage) return;
@@ -184,10 +180,13 @@ function transitionToPage() {
         changePage = true;
         heartParticleInt = null;
 
-        fetch("new.html").then(response => response.text()).then(text => {
-            document.querySelector('html').innerHTML = text;
-            nodeScriptReplace(document.getElementsByTagName("body")[0]);
-        });
+        // fetch("new.html").then(response => response.text()).then(text => {
+        //     document.querySelector('html').innerHTML = text;
+        //     nodeScriptReplace(document.getElementsByTagName("body")[0]);
+        // });
+        window.location.replace(
+            "new.html"
+        );
     }, 20000)
 }
 function startClock() {

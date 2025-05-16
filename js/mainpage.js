@@ -5,6 +5,7 @@ const divBody = document.getElementById("divBody");
 const titleBox = document.getElementById("titleBox");
 
 music.volume = 0.5;
+rate = -0.0005;
 
 setTimeout(() => {
     pBox.style.opacity = "1";
