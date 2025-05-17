@@ -1,0 +1,37 @@
+@keyframes moveTrain {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(140vw);
+    }
+}
+
+#trainDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    align-items: center;
+
+    width: 1000px;
+    height: 100px;
+
+    position: absolute;
+    bottom: 0%;
+    right: 100%;
+    animation: moveTrain 30s linear 0s infinite forwards;
+}
+#loveTrain {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+}
+#trainText {
+    text-align: right;
+    font-size: 2em;
+    width: 100%;
+
+    color: #ffb7ce;
+    font-weight: bold;
+}

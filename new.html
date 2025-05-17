@@ -1,24 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/x-icon" href="assets/imgs/heart.png">
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/second_style.css" rel="stylesheet">
+    <link href="css/text.css" rel="stylesheet">
+    <link href="maincss/style.css" rel="stylesheet">
     <title>Happy Birthday!</title>
 </head>
+
 <body>
-    <audio id="music" src="assets/music/my_valentine.mp3" loop autoplay></audio>
+    <audio id="music" src="assets/music/fly_me_to_the_moon.mp3" loop></audio>
     <canvas id="container"></canvas>
-    <div id="white"></div>
-    <div id="divBody">
-        
+
+    <div id="lyrics" class="applywavy" data-wavy="rainbowlightwavy" data-delay="60">♫ - Fly Me To The Moon - ♫</div>
+    <img class="heartParticles" src="assets/imgs/heart.png" style="visibility: hidden;">
+    <div id="white">
+        <div>Click to continue...</div>
+    </div>
+    <div class="divBody" id="titleWidth">
+        <div id="title">
+            <img id="gifts-icon" src="assets/imgs/gifts-icon.png">
+            Happy <span class="applywavy" data-wavy="rainbowstrongwavy" data-delay="90">BIRTHDAY</span> Mama!
+            <img id="balloon" src="assets/imgs/balloon.png">
+        </div>
+    </div>
+    <div class="divBody">
+        <div id="pBackground">
+            <h1>- Opening Message -</h1>
+            <p>
+                I wanted to give you something that's more than a gift, something that shows just how much I see you,
+                how much I admire you, and how thankful I am for everything you've done. So I put together this little
+                walk down memory lane. Each photo tells a piece of your story, the hard work, the heart, the strength,
+                and the love you've poured into every part of your life.
+                You're not just the mom who raised me. You're the woman who inspires me. And through these moments, big
+                and small, I hope you can see just how much you mean to me.
+                Let's look back on everything you've accomplished. I'm proud of every part of you.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/1.jpg">
+            <p>
+                Look at you, all dressed up in that grad gown, I can only imagine how proud and relieved you must've
+                felt that day, finally reaching the finish line after everything you went through.
+                You didn't just chase your dream, you caught it. And now I get to say that my mom's a vet, and not just
+                any vet, but one who fought for it with everything she had.
+                This photo? It's not just a memory. It's proof that you're amazing.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/2.jpg">
+            <p>
+                Day one, nervous smile, brand new scrubs, and a heart full of hopes (and maybe a little fear, too). But
+                knowing you, you probably walked in like a pro and made everyone's day better without even trying.
+                You've come so far since this moment, but this was the start of everything. The start of your journey as
+                the vet who would go on to save lives, touch hearts, and inspire me every single day.
+                You didn't just show up, you belonged there from the start.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/3.jpg">
+            <p>
+                This is you in your elementgentle hands, calm voice, and a heart big enough for every fur baby that
+                walks through your door. I've seen how they trust you without words, how their eyes soften when you're
+                near.
+                To them, you're not just a vet. You're safety, comfort, and sometimes even their second chance. And to
+                me? You're all that and more
+                You were meant for this.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/4.jpg">
+            <p>
+                Long day, huh? I know this look, it's the ‘I've-given-everything-I-could-today’ smile. The one that
+                comes after hours of standing, solving problems, caring for lives that can't even say thank you.
+                You might see tired eyes here, but I see strength. I see dedication. I see someone who shows up, even
+                when she's running on empty. And I hope you know… even on your most exhausted days, you're still my
+                superhero.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/5.jpg">
+            <p>
+                Look at you, surrounded by the people who get to see the funny, chill, off-duty version of you. The one
+                who laughs loud, tells the best stories, and makes even the hardest days feel lighter.
+                You've always had this way of bringing people together, of making everyone feel welcome and seen. It's
+                no surprise you're loved not just at home, but everywhere you go.
+                I hope you know how much joy you bring, just by being you.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/6.jpg">
+            <p>
+                Just you, doing your thing, no spotlight, no clinic, no title. And yet, this is one of my favorite
+                versions of you. The calm, the warmth, the quiet kind of love that shows up in little things like
+                scrolling through your phone or humming to yourself.
+                It's in these everyday moments that I'm reminded how lucky I am. Because even when you're not trying,
+                you're everything I admire.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/7.jpg">
+            <p>
+                There's something about this photo that just says everything, strong, beautiful, and confident. It's the
+                way you carry yourself, the way you light up any room without even trying.
+                This is you, just being you, and that's more than enough. You've always had this quiet kind of power,
+                and I'm lucky to see it up close every day.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/8.jpg">
+            <p>
+                Two hearts, one love. It's so easy to see how much he adores you, even when he gives you the worst
+                migraines. The way he melts into your arms, the way you smile like your whole world's in that little
+                bundle.
+                You're not just a vet, or a leader, you're his safe place. His first home. And honestly? Watching you
+                with him makes me love you even more.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/9.jpg">
+            <p>
+                This picture holds more than just a moment, it holds a journey. You've carried her through every
+                hospital visit, every diagnosis, every quiet night filled with questions. I've watched you pour
+                everything you have into making sure she gets the care she needs, your time, your energy, even your
+                dreams.
+                You've spent more than just money, you've spent pieces of your heart making sure hers stays strong. And
+                even when things got overwhelming, you never stopped. You even considered leaving everything behind,
+                just to give her a better shot somewhere else. That kind of love? It's rare. It's fierce. And it's what
+                makes you the mom I'll always admire.
+                You didn't just fight for her. You never stopped loving through it all.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/10.jpg">
+            <p>
+                Just us, no big moment, no fancy event, just a simple day with you. But honestly? These are my
+                favorites. The quiet times, the little jokes, the way being next to you always feels like home.
+                You've been my safe place for as long as I can remember. And even when life gets crazy, being with you
+                reminds me that I'm never alone. You're not just my mom, you're my constant.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/11.jpg">
+            <p>
+                Here's where it all began, before she was a vet, before she was a mom, she was a sister. The kind who
+                loves quietly but fiercely, who gives without asking for anything back. You can just see it in this
+                photo: the way she holds her place in the family with grace, strength, and loyalty.
+                They've grown up together, faced life side by side, and through it all, she's stayed the same,
+                steadfast, kind, dependable. Being part of this bond shaped the woman she became, and I'm endlessly
+                thankful for that.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/12.jpg">
+            <p>
+                This is more than just a title. This is proof of how far you've come, from a student with a dream to a
+                leader who now helps shape the future of your field. Becoming a PCCP diplomate wasn't handed to you. You
+                earned it, with years of dedication, wisdom, sacrifice, and a heart that never stopped fighting for
+                what's right.
+                You stand here not just as a vet, but as a mentor, a voice, and a force in the veterinary world. And to
+                me, it's the clearest reminder that my mom isn't just incredible, she's unstoppable. I hope you know how
+                proud I am to be your daughter.
+                You didn't just make it. You made it matter.
+            </p>
+            <hr class="dotted">
+            <img src="assets/imgs/photos/13.jpg">
+            <p>
+                This isn't just a picture of our family, it's a picture of everything you've held together. Every smile
+                here, every hug, every little moment of peace we've shared… you made that possible. You've been the
+                glue, the light, and the heart of this home.
+                Through all the ups and downs, through stress, work, worry, sickness, and sacrifice, you've never once
+                stopped being there for all of us. You didn't let anything break you. Not the long hours, not the
+                sleepless nights, not the fear, not the pressure. You just kept going. For us.
+                I know we don't always say it, and sometimes it probably feels like the weight you carry goes unnoticed.
+                But I see it. I feel it. The way you love, the way you lead, the way you protect and provide, even when
+                it costs you more than anyone knows.
+                This family exists, it stands strong, because of you. And if I could capture everything you've done for
+                us in a single word, it would be ‘everything.’ Because that's what you've been. Everything.
+            </p>
+            <hr class="dotted">
+            <h1>- Closing Message -</h1>
+            <p>
+                And here we are, at the end of this little journey, but in real life, you're still going, still growing,
+                still giving your all to the people you love.
+                Looking back at everything… I hope you see what I see, a woman who has lived with purpose, fought with
+                grace, loved without limits, and achieved so much more than she gives herself credit for.
+                You've worn so many hats, daughter, sister, vet, officer, friend, and most of all, mom. And in every
+                role, you've shown up with strength, heart, and the kind of love that holds everything together.
+                I love you more than words will ever fully explain. Thank you for everything you've done, and everything
+                you still do, even when no one's watching. You'll always be my hero.
+                Happy birthday, Mama.
+            </p>
+        </div>
     </div>
     <script src="js/three.min.js"></script>
     <script src="js/shader.js"></script>
-    <script src="js/mainpage.js" defer></script>
+    <script src="js/globalFunctions.js"></script>
+    <script src="mainjs/mainpage.js"></script>
+    <script src="mainjs/background.js"></script>
+    <script src="mainjs/lyricsHandler.js"></script>
 </body>
 </html>

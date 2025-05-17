@@ -5,6 +5,7 @@ precision highp float;
 uniform vec3 iResolution;
 uniform float iTime;
 uniform float SPIN_ROTATION;
+uniform float SPIN_AMOUNT;
 uniform float SPIN_SPEED;
 uniform vec4 COLOUR_1;
 uniform vec4 COLOUR_2;
@@ -13,7 +14,6 @@ uniform vec4 COLOUR_3;
 #define OFFSET vec2(0.0)
 #define CONTRAST 1.
 #define LIGTHING .15
-#define SPIN_AMOUNT .2
 #define PIXEL_FILTER 1080.
 #define SPIN_EASE 1.
 #define PI 3.14159265359

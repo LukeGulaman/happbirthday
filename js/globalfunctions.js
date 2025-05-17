@@ -1,11 +1,8 @@
-const body = document.body;
-const welcomeText = document.getElementById("welcomeText");
-const timeDesc = document.getElementById("timedesc");
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 1.;
+const wavyClasses = Array.from(document.getElementsByClassName("applywavy"));
 
-let hasClicked = false;
-let rate = 0.0005;
+wavyClasses.forEach((elm, _) => {
+    wavyText(elm, elm.textContent, elm.dataset.wavy, elm.dataset.delay);
+})
 
 function wavyText(id, text, className, delay) {
     id.innerHTML = text
@@ -22,23 +19,6 @@ function wavyText(id, text, className, delay) {
     });
 }
 
-wavyText(timeDesc, timeDesc.textContent, "defaultWavy", 30);
-
-function clickScreen(elem) {
-    if (hasClicked) return;
-
-    hasClicked = true;
-    body.style.overflow = "hidden";
-
-    elem.style.width = "300vw";
-    elem.style.height = "300vw";
-    elem.style.backgroundColor = "rgba(255,255,255,0)";
-
-    welcomeText.style.opacity = 0;
-    startClock();
-    bgMusic.play();
-
-    setTimeout(() => {
-        elem.remove();
-    }, 2500)
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

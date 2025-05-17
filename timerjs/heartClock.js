@@ -24,35 +24,16 @@ let changePage = false;
 
 tick1.volume = tick2.volume = 0.5;
 
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function nodeScriptReplace(node) {
-    if (nodeScriptIs(node) === true) {
-        node.parentNode.replaceChild(nodeScriptClone(node), node);
-    }
-    else {
-        var i = -1, children = node.childNodes;
-        while (++i < children.length) {
-            nodeScriptReplace(children[i]);
+function getSoundAndFadeAudio(audiosnippetId) {
+    var sound = document.getElementById(audiosnippetId);
+    var fadeAudio = setInterval(function () {
+        if (sound.volume > 0) {
+            sound.volume = Math.round((sound.volume - 0.05) * 100) / 100;
         }
-    }
-
-    return node;
-}
-function nodeScriptClone(node) {
-    var script = document.createElement("script");
-    script.text = node.innerHTML;
-
-    var i = -1, attrs = node.attributes, attr;
-    while (++i < attrs.length) {
-        script.setAttribute((attr = attrs[i]).name, attr.value);
-    }
-    return script;
-}
-
-function nodeScriptIs(node) {
-    return node.tagName === 'SCRIPT';
+        if (sound.volume <= 0) {
+            clearInterval(fadeAudio);
+        }
+    }, 200);
 }
 
 function changeTime(startDate, endDate) {
@@ -100,6 +81,8 @@ function transitionToPage() {
     intervalId = null;
     splashBuildup.play();
     introPad.play();
+
+    getSoundAndFadeAudio("bgMusic");
 
     whiteGlow.style.animation = "20s ease-in whiteGlowGrow";
     whiteGlow.style.animationFillMode = "forwards";
@@ -187,7 +170,7 @@ function transitionToPage() {
         window.location.replace(
             "new.html"
         );
-    }, 20000)
+    }, 25000)
 }
 function startClock() {
     setTimeout(() => {

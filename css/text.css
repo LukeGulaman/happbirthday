@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Cascadia';
+    src: url(../assets/fonts/CascadiaCode-Variable.ttf);
+}
+
+@keyframes trainWavy {
+    0% { transform: translateY(15px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(15px); }
+}
+@keyframes defaultWavy {
+    0% { transform: translateY(2px); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(2px); }
+}
+@keyframes lightWavy {
+    0% { transform: translateY(1px); }
+    50% { transform: translateY(-1px); }
+    100% { transform: translateY(1px); }
+}
+@keyframes strongWavy {
+    0% { transform: translateY(6px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(6px); }
+}
+
+@keyframes rainbow-bg{
+		100%,0%{
+			color: rgb(255, 125, 125);
+		}
+		8%{
+			color: rgb(255, 190, 125);
+		}
+		16%{
+			color: rgb(255, 255, 125);
+		}
+		25%{
+			color: rgb(190, 255, 125);
+		}
+		33%{
+			color: rgb(125, 255, 125);
+		}
+		41%{
+			color: rgb(125, 255, 190);
+		}
+		50%{
+			color: rgb(125, 255, 255);
+		}
+		58%{
+			color: rgb(125, 190, 255);
+		}
+		66%{
+			color: rgb(125, 125, 255);
+		}
+		75%{
+			color: rgb(190, 125, 255);
+		}
+		83%{
+			color: rgb(255, 125, 255);
+		}
+		91%{
+			color: rgb(255, 125, 190);
+		}
+}
+
+.trainwavy, .wavy, .lightwavy, .strongwavy, .rainbowwavy, .rainbowlightwavy, .rainbowstrongwavy {
+    animation-duration: 1.3s;
+    animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);;
+    animation-iteration-count: infinite;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+}
+.trainwavy {
+    animation-name: trainWavy;
+}
+.wavy {
+    animation-name: defaultWavy;
+}
+.lightwavy {
+    animation-name: lightWavy;
+}
+.strongwavy {
+    animation-name: strongWavy;
+}
+.rainbowstrongwavy {
+    animation-name: strongWavy, rainbow-bg;
+}
+.rainbowwavy {
+    animation-name: defaultWavy, rainbow-bg;
+}
+.rainbowlightwavy {
+    animation-name: lightWavy, rainbow-bg;
+}

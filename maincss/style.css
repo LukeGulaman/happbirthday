@@ -1,0 +1,161 @@
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes openTitle {
+    from {width: 0px; height: 0px; opacity: 0;}
+    50% {width: 60%; height: 0px; padding: 0; opacity: 1;}
+    to {width: 60%; height: 90px; padding: 2%; opacity: 1;}
+}
+
+* {
+    font-family: 'Cascadia';
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    background: #000;
+    z-index: -10;
+}
+
+#white {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 1;
+
+    transition: 5s opacity;
+
+    background: white;
+    pointer-events: none;
+    z-index: 20;
+}
+#white div {
+    color: rgb(211, 211, 211);
+    font-weight: bold;
+    font-size: 4em;
+
+    animation: fadeIn 5s ease 0s 1 normal forwards;
+}
+
+.divBody {
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#titleWidth {
+    padding-top: 12.5%;
+    min-height: 50vh;
+    height: 50vh;
+}
+#title {
+    border: pink solid 1px;
+    border-radius: 8px;
+    background-color: rgba(255, 192, 203, 0.15);
+
+    color: white;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0;
+
+    opacity: 0;
+    overflow: hidden;
+    user-select: none;
+}
+#title span {
+    font-size: 1.3em;
+}
+#gifts-icon {
+    position: relative;
+    right: 0;
+    height: 80%;
+
+    filter: invert(71%) sepia(12%) saturate(946%) hue-rotate(304deg) brightness(112%) contrast(105%);
+}
+#balloon {
+    position: relative;
+    left: 0;
+    height: 80%;
+
+    filter: invert(71%) sepia(12%) saturate(946%) hue-rotate(304deg) brightness(112%) contrast(105%);
+}
+#pBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50%;
+    height: fit-content;
+
+    border: #000 solid 1px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 1%;
+    margin-bottom: 2%;
+}
+#pBackground h1 {
+    color: white;
+    font-size: 2em;
+}
+#pBackground p {
+    color: white;
+    text-align: center;
+    padding: 0% 5%;
+}
+#pBackground img {
+    border: white solid 2px;
+    border-radius: 15px;
+}
+hr.dotted {
+  border-top: 3px dotted #bbb;
+  border-bottom: 0;
+  width: 90%;
+  margin: 2%;
+}
+
+#lyrics {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    max-width: 15%;
+
+    text-wrap: normal;
+
+    color: white;
+    border: #000 solid 1px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 1%;
+}
+
+.heartParticles {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    filter: brightness(200%) grayscale(100%);
+    z-index: -10;
+    image-rendering: crisp-edges;
+    opacity: 0.25;
+
+    width: 150px;
+    height: 150px;
+}

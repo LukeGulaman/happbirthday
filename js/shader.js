@@ -23,6 +23,7 @@ async function main() {
         iResolution: { value: new THREE.Vector3() },
 
         SPIN_ROTATION: { value: .2 },
+        SPIN_AMOUNT: { value: .2 },
         SPIN_SPEED: { value: 1.0 },
         COLOUR_1: {value: new THREE.Vector4(0.1, 0.1, 0.1, 1.0)},
         COLOUR_2: {value: new THREE.Vector4(0.3, 0.3, 0.3, 1.0)},
