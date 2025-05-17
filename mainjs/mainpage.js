@@ -9,7 +9,7 @@ bgMusic.loop = true;
 
 wavyText(whiteText, whiteText.textContent, "strongwavy", 60);
 
-addEventListener("mousedown", (_) => {
+addEventListener("click", (_) => {
     white.style.opacity = 0;
     title.style.animation = "openTitle 4s ease 1s 1 normal forwards";
 
