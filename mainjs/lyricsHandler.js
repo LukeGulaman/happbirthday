@@ -12,10 +12,15 @@ async function main() {
 
     function playLyrics() {
         const currentDur = durations[currentLine];
-        const nextDur = ((currentLine+1) < durations.length) ? durations[currentLine+1] : 9999;
+        const nextDur = ((currentLine + 1) < durations.length) ? durations[currentLine + 1] : 9999;
 
         if ((currentDur < bgMusic.currentTime) && (nextDur > bgMusic.currentTime)) {
-            wavyText(lyricsElem, lines[currentLine], "lightwavy", 60);
+            if (lines[currentLine] == "#") {
+                wavyText(lyricsElem, "♫ - Fly Me To The Moon - ♫", "rainbowlightwavy", 60);
+            } else {
+                lyricsElem.textContent = lines[currentLine];
+                wavyText(lyricsElem, lyricsElem.textContent, "lightwavy", 60);
+            }
             currentLine++;
         }
         if (currentLine >= durations.length) {

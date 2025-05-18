@@ -4,7 +4,6 @@ const bgMusic = document.getElementById("music"),
     title = document.getElementById("title");
 
 bgMusic.volume = 0.5;
-// bgMusic.playbackRate = 8.0;
 bgMusic.loop = true;
 
 wavyText(whiteText, whiteText.textContent, "strongwavy", 60);

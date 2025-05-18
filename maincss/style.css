@@ -1,20 +1,44 @@
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
+
 @keyframes openTitle {
-    from {width: 0px; height: 0px; opacity: 0;}
-    50% {width: 60%; height: 0px; padding: 0; opacity: 1;}
-    to {width: 60%; height: 90px; padding: 2%; opacity: 1;}
+    from {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+    }
+
+    50% {
+        width: 60%;
+        height: 0px;
+        padding: 0;
+        opacity: 1;
+    }
+
+    to {
+        width: 60%;
+        height: 90px;
+        padding: 2%;
+        opacity: 1;
+    }
 }
 
 * {
     font-family: 'Cascadia';
 }
+
 body {
     margin: 0;
     overflow-x: hidden;
 }
+
 #container {
     width: 100vw;
     height: 100vh;
@@ -42,10 +66,11 @@ body {
     pointer-events: none;
     z-index: 20;
 }
+
 #white div {
     color: rgb(211, 211, 211);
     font-weight: bold;
-    font-size: 4em;
+    font-size: 2em;
 
     animation: fadeIn 5s ease 0s 1 normal forwards;
 }
@@ -60,11 +85,13 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
 #titleWidth {
     padding-top: 12.5%;
     min-height: 50vh;
     height: 50vh;
 }
+
 #title {
     border: pink solid 1px;
     border-radius: 8px;
@@ -80,9 +107,11 @@ body {
     overflow: hidden;
     user-select: none;
 }
+
 #title span {
     font-size: 1.3em;
 }
+
 #gifts-icon {
     position: relative;
     right: 0;
@@ -90,6 +119,7 @@ body {
 
     filter: invert(71%) sepia(12%) saturate(946%) hue-rotate(304deg) brightness(112%) contrast(105%);
 }
+
 #balloon {
     position: relative;
     left: 0;
@@ -97,6 +127,7 @@ body {
 
     filter: invert(71%) sepia(12%) saturate(946%) hue-rotate(304deg) brightness(112%) contrast(105%);
 }
+
 #pBackground {
     display: flex;
     justify-content: center;
@@ -112,30 +143,75 @@ body {
     padding: 1%;
     margin-bottom: 2%;
 }
+
 #pBackground h1 {
     color: white;
     font-size: 2em;
 }
+
 #pBackground p {
     color: white;
     text-align: center;
     padding: 0% 5%;
 }
-#pBackground img {
+
+#pBackground img,
+#creditsBackground img {
     border: white solid 2px;
     border-radius: 15px;
 }
+
 hr.dotted {
-  border-top: 3px dotted #bbb;
-  border-bottom: 0;
-  width: 90%;
-  margin: 2%;
+    border-top: 3px dotted #bbb;
+    border-bottom: 0;
+    width: 90%;
+    margin: 2%;
+}
+
+#creditsBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+
+    width: 50%;
+    height: fit-content;
+
+    border: #000 solid 1px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+#creditsBackground h1 {
+    width: 100%;
+    flex-grow: 4;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+figure img {
+    width: 200px;
+    margin: 2%;
+}
+
+figcaption {
+    color: white
 }
 
 #lyrics {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 40px;
+    bottom: 40px;
     max-width: 15%;
 
     text-wrap: normal;

@@ -17,6 +17,13 @@ function wavyText(id, text, className, delay) {
         span.style.animationDelay = `${-index * delay}ms`;
         if (span.textContent == " ") span.style.display = "inline";
     });
+
+    id.innerHTML = id.innerHTML
+    .split(/( )(?:<\/span[^>]*>)/gm)
+    .map(letter => {
+        if (letter != " ") return `<div style="display: inline-block;">` + letter + `</div>`;
+    })
+    .join(" ");
 }
 
 function getRandomNumber(min, max) {
