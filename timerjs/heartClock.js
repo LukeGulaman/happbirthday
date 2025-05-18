@@ -185,6 +185,7 @@ function startClock() {
             document.title = `${Math.round(Math.abs((date - birthdayDate) / oneDay))} days left :3`;
 
             if (timeLeft >= 100) {
+                timeText.textContent = "Surprise!!!!!!!!!!!!!!!!!!!!!!!!!!"
                 return transitionToPage();
             }
 
