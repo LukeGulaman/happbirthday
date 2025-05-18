@@ -9,7 +9,7 @@ bgMusic.loop = true;
 
 let hasClicked = false;
 
-wavyText(timeDesc, timeDesc.textContent, "defaultWavy", 30);
+wavyText(timeDesc, timeDesc.textContent, "wavy", 30);
 
 function clickScreen(elem) {
     if (hasClicked) return;
