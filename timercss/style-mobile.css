@@ -1,0 +1,153 @@
+@keyframes whiteGlowGrow {
+    from { transform: scale(25%); opacity: 0; }
+    30% { transform: scale(50%);  }
+    60% { opacity: 1; }
+    80% { transform: scale(100%); }
+    to { transform: scale(1000%); }
+}
+@keyframes whiteFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+* {
+    font-family: 'Cascadia';
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    max-width: 100vw;
+    width: 100vw;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    background: #000;
+    z-index: -10;
+}
+#white {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    background: white;
+    pointer-events: none;
+    z-index: 20;
+}
+#clickScreen {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+    width: 30vw;
+    height: 30vw;
+    transition: 2.5s ease;
+    background-color: white;
+
+    outline: solid black 120vw;
+    outline-offset: -1px;
+    z-index: 10;
+}
+#welcomeText {
+    text-align: center;
+    font-weight: bold;
+
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: 2.5s ease;
+    color: white;
+    z-index: 10;
+}
+
+#divBody {
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#heartDiv {
+    width: 20vw;
+    height: 20vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#time {
+    color: white;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+
+    width: 100%;
+    padding: 15px;
+
+    background-color: #ffb7ce24;
+    border: solid 1px #ffb7ce;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#timedesc {
+    color: white;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25em;
+
+    width: fit-content;
+    padding: 10px;
+
+    background-color: #ff80a825;
+    border: solid 1px #ff80a8;
+    border-radius: 5px;
+}
+#timecontainer {
+    width: 50vw;
+}
+
+#whiteGlow {
+    position: absolute;
+    z-index: 15;
+
+    transform: scale(0);
+}
+
+.middleItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.heartParticles {
+    position: absolute;
+    top: -4%;
+    left: 0%;
+    filter: brightness(200%);
+    z-index: 10;
+    image-rendering: crisp-edges;
+
+    width: 150px;
+    height: 150px;
+}
