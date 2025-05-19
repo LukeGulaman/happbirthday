@@ -6,7 +6,7 @@ const root = document.querySelector(":root"),
     white = document.getElementById("white"),
     heartParticle = document.getElementsByClassName("heartParticles")[0],
 
-    birthdayDate = new Date("2025-05-20T19:01:00"),
+    birthdayDate = new Date("2025-05-20T00:00:00"),
     startOfFile = new Date("2025-04-27T12:00:00"),
 
     splashBuildup = new Audio("assets/sounds/splash_buildup.ogg"),

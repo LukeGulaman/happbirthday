@@ -213,6 +213,7 @@ figcaption {
     transform: translate(-50%, 0);
     max-width: 90%;
     width: max-content;
+    height: max-content;
 
     text-wrap: normal;
     text-align: center;
